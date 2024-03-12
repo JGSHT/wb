@@ -4,51 +4,136 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c0e0c5f-bae8-4a4c-a2f6-9f9e414b7f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/WbApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/core/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/rest/HelloRest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/rest/UserRest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="3c0e0c5f-bae8-4a4c-a2f6-9f9e414b7f5e" name="Changes" comment="wb">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/MenuRolesDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/RoleMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/MenuRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/RoleMenuRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/exception/JwtTokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/handler/AccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/handler/AuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/handler/AuthenticationSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtTokenConvertor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/manager/OAuthorizationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/model/UserDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/multiple/authentication/SmsAuthenticationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/multiple/converter/MultipleAuthConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/multiple/filter/OAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/multiple/manager/SmsReactiveAuthenticationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/RoleMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/SmsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/util/TT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test/FluxTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test/MonoTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test/SinksTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/test/WebfluxApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WbApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WFApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/rest/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/rest/UserRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="webfluxdemo" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="webfluxdemo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="webfluxdemo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="webfluxdemo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.java" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2dMGTb9ZcJkPNDr6MY64O4HuWvc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -57,32 +142,47 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build webfluxdemo.executor": "Run",
+    "Gradle.webfluxdemo [bootRun].executor": "Run",
+    "Gradle.webfluxdemo [build].executor": "Debug",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.WFApplication (1).executor": "Run",
+    "Spring Boot.WFApplication.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/mac/Desktop/sec/webfliuxdemo/src/main/resources"
+    "didalgo.chatgpt.ToolWindow.ACTIVE": "GPT_4",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/mac/Desktop/sec/webfluxdemo",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "spring.configuration.checksum": "f5bc93f10c8b97645e2d47457dbe56c8"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.security.handler" />
+      <recent name="org.example.security.model" />
+      <recent name="org.example.util" />
+      <recent name="org.example.repository" />
+      <recent name="org.example.service" />
+    </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.generated-requests | #48">
-    <configuration name="generated-requests | #47" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="47" requestIdentifier="#47" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #48" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="48" requestIdentifier="#48" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="WbApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="webfliuxdemo.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.WbApplication" />
+  <component name="RunManager" selected="Spring Boot.WFApplication">
+    <configuration name="TT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.util.TT" />
+      <module name="webfluxdemo.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,13 +190,86 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="webfluxdemo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="webfluxdemo [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #50" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="50" requestIdentifier="#50" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #51" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="51" requestIdentifier="#51" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="WFApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="webfluxdemo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.WFApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WFApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="webfluxdemo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.WFApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #48" />
-        <item itemvalue="HTTP Request.generated-requests | #47" />
-        <item itemvalue="Spring Boot.WbApplication" />
+        <item itemvalue="Gradle.webfluxdemo [build]" />
+        <item itemvalue="Gradle.webfluxdemo [bootRun]" />
+        <item itemvalue="Application.TT" />
+        <item itemvalue="HTTP Request.generated-requests | #51" />
+        <item itemvalue="HTTP Request.generated-requests | #50" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-jbr-17.0.9-3183f394aec4-631a3c05" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,8 +279,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709810545682</updated>
-      <workItem from="1709810548330" duration="6302000" />
+      <workItem from="1709810548330" duration="7601000" />
+      <workItem from="1709824602658" duration="4050000" />
+      <workItem from="1709863239509" duration="51895000" />
+      <workItem from="1710068667762" duration="10590000" />
+      <workItem from="1710140510592" duration="1451000" />
+      <workItem from="1710146273343" duration="58000" />
+      <workItem from="1710146365826" duration="71000" />
+      <workItem from="1710146459299" duration="72000" />
+      <workItem from="1710146552538" duration="8172000" />
+      <workItem from="1710168158411" duration="146000" />
+      <workItem from="1710168331224" duration="3204000" />
+      <workItem from="1710210532301" duration="11307000" />
     </task>
+    <task id="LOCAL-00001" summary="wb">
+      <created>1709822712108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709822712108</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,5 +312,55 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="wb" />
+    <option name="LAST_COMMIT_MESSAGE" value="wb" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/6.2.1/cd35c4c4bf672a03499c98bfc61baa0e741c2505/spring-security-core-6.2.1-sources.jar!/org/springframework/security/authentication/AbstractUserDetailsReactiveAuthenticationManager.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/6.2.1/cd35c4c4bf672a03499c98bfc61baa0e741c2505/spring-security-core-6.2.1-sources.jar!/org/springframework/security/core/userdetails/MapReactiveUserDetailsService.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/6.2.1/cd35c4c4bf672a03499c98bfc61baa0e741c2505/spring-security-core-6.2.1-sources.jar!/org/springframework/security/authentication/DelegatingReactiveAuthenticationManager.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/security/multiple/manager/SmsReactiveAuthenticationManager.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/WFApplication.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/6.2.1/52ac208ac4750be5b0284839631814bca0fc0e7a/spring-security-web-6.2.1-sources.jar!/org/springframework/security/web/server/MatcherSecurityWebFilterChain.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/6.2.1/52ac208ac4750be5b0284839631814bca0fc0e7a/spring-security-web-6.2.1-sources.jar!/org/springframework/security/web/server/authentication/AuthenticationWebFilter.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/security/multiple/manager/SmsReactiveAuthenticationManager.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -23,7 +23,7 @@ public class UserRest {
         return Mono.just(ResponseEntity.ok(userService.findUserByName(username)));
     }
 
-    @GetMapping(value = "getAllUser")
+    @GetMapping(value = "all")
     public Mono<R<List<User>>> getAllUser() {
         return userService.getAllUserInfo().collectList().map(R::success);
     }

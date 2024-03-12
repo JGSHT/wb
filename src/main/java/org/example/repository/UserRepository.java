@@ -32,4 +32,6 @@ public interface UserRepository extends R2dbcRepository<User, Integer> {
             "WHERE id = :#{#user.id}")
     Mono<User> updateUserQuery(@Param("user") User user);
 
+    Mono<User> findByUsernameEquals(@Param("username") String username);
+
 }
