@@ -3,14 +3,15 @@ package org.example.security.multiple.converter;
 import org.example.security.multiple.authentication.SmsAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.web.server.authentication.ServerFormLoginAuthenticationConverter;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
-import java.util.function.Function;
+import java.util.Objects;
 
-public class MultipleAuthConverter implements Function<ServerWebExchange, Mono<Authentication>> {
+public class MultipleAuthConverter extends ServerFormLoginAuthenticationConverter{
 
     private String grantTypeParameter = "grantType";
 
@@ -28,7 +29,7 @@ public class MultipleAuthConverter implements Function<ServerWebExchange, Mono<A
 
     private Authentication createAuthentication(MultiValueMap<String, String> data){
         String grantType = data.getFirst(this.grantTypeParameter);
-        if (grantType.equals("sms")){
+        if (Objects.nonNull(grantType) && grantType.equals("sms")){
             String phone = data.getFirst(this.phoneParameter);
             String smsCode = data.getFirst(this.smsCodeParameter);
             return new SmsAuthenticationToken(phone, smsCode, false, new ArrayList<>());

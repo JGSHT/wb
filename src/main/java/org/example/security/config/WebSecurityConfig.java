@@ -7,22 +7,28 @@ import org.example.security.jwt.JwtProperties;
 import org.example.security.jwt.JwtService;
 import org.example.security.jwt.JwtTokenConvertor;
 import org.example.security.manager.OAuthorizationManager;
+import org.example.security.multiple.converter.MultipleAuthConverter;
+import org.example.security.multiple.filter.OAuthenticationFilter;
+import org.example.security.multiple.manager.SmsReactiveAuthenticationManager;
 import org.example.service.SmsService;
 import org.example.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.DelegatingReactiveAuthenticationManager;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthenticationToken;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
+import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -47,7 +53,7 @@ public class WebSecurityConfig {
             UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder,
             SmsService smsService) {
         LinkedList<ReactiveAuthenticationManager> managers = new LinkedList<>();
-//        managers.add(new SmsReactiveAuthenticationManager(smsService, userService));
+        managers.add(new SmsReactiveAuthenticationManager(smsService, userService));
         UserDetailsRepositoryReactiveAuthenticationManager authenticationManager
                 = new UserDetailsRepositoryReactiveAuthenticationManager(userService);
         authenticationManager.setPasswordEncoder(bCryptPasswordEncoder);
@@ -55,13 +61,26 @@ public class WebSecurityConfig {
         return new DelegatingReactiveAuthenticationManager(managers);
     }
 
+    @Bean
+    public OAuthenticationFilter oAuthenticationFilter(ReactiveAuthenticationManager authenticationManager,
+                                                       AuthenticationSuccessHandler authenticationSuccessHandler,
+                                                       AuthenticationFailureHandler authenticationFailureHandler){
+        OAuthenticationFilter oAuthenticationFilter = new OAuthenticationFilter(authenticationManager);
+        oAuthenticationFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
+        oAuthenticationFilter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
+        oAuthenticationFilter.setServerAuthenticationConverter(new MultipleAuthConverter());
+        oAuthenticationFilter.setSecurityContextRepository(NoOpServerSecurityContextRepository.getInstance());
+        oAuthenticationFilter.setRequiresAuthenticationMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.POST, "/aa/login"));
+        return oAuthenticationFilter;
+    }
 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
             ReactiveAuthenticationManager reactiveAuthenticationManager,
             AuthenticationSuccessHandler authenticationSuccessHandler,
             AuthenticationFailureHandler authenticationFailureHandler,
-            OAuthorizationManager oAuthorizationManager){
+            OAuthorizationManager oAuthorizationManager,
+            OAuthenticationFilter oAuthenticationFilter){
         return http
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
                 .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
@@ -72,6 +91,7 @@ public class WebSecurityConfig {
                                 .authenticationSuccessHandler(authenticationSuccessHandler)
                                 .authenticationFailureHandler(authenticationFailureHandler)
                 )
+                .addFilterAfter(oAuthenticationFilter, SecurityWebFiltersOrder.FORM_LOGIN)
                 .oauth2ResourceServer(oauth2 ->
                         oauth2.bearerTokenConverter(this::MatchRequest)
                                 .jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(new JwtTokenConvertor())))
@@ -84,6 +104,7 @@ public class WebSecurityConfig {
                         ))
                 .authorizeExchange(authorizeExchangeSpec -> {
                     authorizeExchangeSpec.pathMatchers("/auth/login").permitAll();
+                    authorizeExchangeSpec.pathMatchers("/aa/login").permitAll();
                     authorizeExchangeSpec.anyExchange().access(oAuthorizationManager);
                 })
                 .build();

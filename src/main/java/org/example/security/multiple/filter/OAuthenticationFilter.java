@@ -7,7 +7,6 @@ import org.springframework.web.server.ServerWebExchange;
 
 public class OAuthenticationFilter extends AuthenticationWebFilter {
 
-
     public OAuthenticationFilter(ReactiveAuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
